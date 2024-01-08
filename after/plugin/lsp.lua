@@ -142,17 +142,16 @@ local omniconfig = {
 	sdk_include_prereleases = true,
 	enable_editorconfig_support = true,
 }
-
 lspconfig.omnisharp.setup(omniconfig)
 
--- local csharpconfig = {
--- 	handlers = {
--- 		["textDocument/definition"] = require('csharpls_extended').handler,
--- 		["textDocument/typeDefinition"] = require('csharpls_extended').handler,
--- 	},
--- 	cmd = { "csharp-ls" },
--- }
--- lspconfig.csharp_ls.setup(csharpconfig)
+local csharpconfig = {
+	handlers = {
+		["textDocument/definition"] = require('csharpls_extended').handler,
+		["textDocument/typeDefinition"] = require('csharpls_extended').handler,
+	},
+	cmd = { "/home/mo/.local/share/nvim/mason/bin/csharp-ls" },
+}
+lspconfig.csharp_ls.setup(csharpconfig)
 
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 

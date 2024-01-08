@@ -1,6 +1,11 @@
 return {
+	-- terminal
+	{ 'akinsho/toggleterm.nvim',                 version = "*", config = true },
+
+	-- csharp
 	{ "Hoffs/omnisharp-extended-lsp.nvim" },
 	{ "Decodetalkers/csharpls-extended-lsp.nvim" },
+
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = { ':TSUpdate' },
