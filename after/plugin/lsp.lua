@@ -129,6 +129,7 @@ lspconfig.yamlls.setup {
 
 local pid = vim.fn.getpid()
 local omnisharp_bin = "/home/mo/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll"
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local omniconfig = {
 	enable_roslyn_analysers = true,
 	enable_import_completion = true,
@@ -136,22 +137,21 @@ local omniconfig = {
 	filetypes = { 'cs', 'csproj', 'sln', 'slnx', 'props' },
 	handlers = {
 		["textDocument/definition"] = require('omnisharp_extended').handler,
+		["textDocument/typeDefinition"] = require('omnisharp_extended').handler,
 	},
-	cmd = { "dotnet", omnisharp_bin },
-	enable_roslyn_analyzers = true,
-	sdk_include_prereleases = true,
-	enable_editorconfig_support = true,
+	cmd = { "dotnet", omnisharp_bin, '--languageserver', '--hostPID', tostring(pid) },
+	capabilities = capabilities,
 }
 lspconfig.omnisharp.setup(omniconfig)
 
-local csharpconfig = {
-	handlers = {
-		["textDocument/definition"] = require('csharpls_extended').handler,
-		["textDocument/typeDefinition"] = require('csharpls_extended').handler,
-	},
-	cmd = { "/home/mo/.local/share/nvim/mason/bin/csharp-ls" },
-}
-lspconfig.csharp_ls.setup(csharpconfig)
+-- local csharpconfig = {
+-- 	handlers = {
+-- 		["textDocument/definition"] = require('csharpls_extended').handler,
+-- 		["textDocument/typeDefinition"] = require('csharpls_extended').handler,
+-- 	},
+-- 	cmd = { "/home/mo/.local/share/nvim/mason/bin/csharp-ls" },
+-- }
+-- lspconfig.csharp_ls.setup(csharpconfig)
 
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
@@ -174,11 +174,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 -- vim.api.nvim_set_keymap('i', "<leader>zz", "<cmd>LspOverloadsSignature<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', "<leader>zz", "<cmd>LspOverloadsSignature<CR>", { noremap = true, silent = true })
 --
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- lspconfig['Omnisharp'].setup {
--- 	capabilities = capabilities
--- }
-
 
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings

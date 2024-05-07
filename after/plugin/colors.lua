@@ -11,8 +11,8 @@
 --
 
 function ColorMyPencils(color)
-	color = color or "vscode"
-	vim.cmd.colorscheme(color)
+  color = color or "onedark"
+  vim.cmd.colorscheme(color)
 end
 
 -- ColorMyPencils('rose-pine')
@@ -47,12 +47,12 @@ vim.g.edge_style = 'neon'
 --
 
 require('onedark').setup {
-	style = 'deep'
+  style = 'deep'
 }
 
 -- ColorMyPencils('vscode')
 -- ColorMyPencils('edge')
-ColorMyPencils('nightfox')
+ColorMyPencils('tokyonight')
 
 -- require('themery').setup({
 -- 	themes = { 'vscode', 'rose-pine', 'rose-pine-dawn', 'rose-pine-main', 'rose-pine-moon', 'kanagawa-wave',
