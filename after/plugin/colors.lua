@@ -52,7 +52,7 @@ require('onedark').setup {
 
 -- ColorMyPencils('vscode')
 -- ColorMyPencils('edge')
-ColorMyPencils('tokyonight')
+ColorMyPencils('vscode')
 
 -- require('themery').setup({
 -- 	themes = { 'vscode', 'rose-pine', 'rose-pine-dawn', 'rose-pine-main', 'rose-pine-moon', 'kanagawa-wave',
