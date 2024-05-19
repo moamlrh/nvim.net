@@ -128,7 +128,7 @@ lspconfig.yamlls.setup {
 -- lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
 local pid = vim.fn.getpid()
-local omnisharp_bin = "/home/mo/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll"
+local omnisharp_bin = "/home/morh/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll"
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local omniconfig = {
 	enable_roslyn_analysers = true,
