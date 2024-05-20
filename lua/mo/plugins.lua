@@ -1,20 +1,20 @@
 return {
   -- terminal
-  { 'akinsho/toggleterm.nvim',                 version = "*", config = true },
+  { 'akinsho/toggleterm.nvim', version = "*", config = true },
   { "nvim-neotest/nvim-nio" },
   {
-  "ray-x/go.nvim",
-  dependencies = {  -- optional packages
-    "ray-x/guihua.lua",
-    "neovim/nvim-lspconfig",
-    "nvim-treesitter/nvim-treesitter",
-  },
-  config = function()
-    require("go").setup()
-  end,
-  event = {"CmdlineEnter"},
-  ft = {"go", 'gomod'},
-  build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", 'gomod' },
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
   -- csharp
   { "Hoffs/omnisharp-extended-lsp.nvim" },
@@ -250,5 +250,18 @@ return {
   { 'Mofiqul/vscode.nvim',              lazy = false },
   { 'JoosepAlviste/palenightfall.nvim', lazy = false },
   { 'stevedylandev/flexoki-nvim',       name = 'flexoki',   lazy = false },
-  { "EdenEast/nightfox.nvim",           priority = 1000,    lazy = false }
+  { "EdenEast/nightfox.nvim",           priority = 1000,    lazy = false },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
+    },
+    opts = {
+      debug = true, -- Enable debugging
+      -- See Configuration section for rest
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+  },
 }
